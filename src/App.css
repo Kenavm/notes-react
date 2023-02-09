@@ -1,0 +1,73 @@
+.header {
+  padding-left: 20px;
+  display:flex;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.new-note {
+  height: 3em;
+  width: 5em;
+  margin-left: 50px;
+}
+
+.note-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  margin: 50px;
+}
+
+.textarea-work {
+  height: 230px;
+  width: 280px;
+  padding:10px;
+  border: none;
+  outline: none;
+  background-color: pink;
+}
+
+.textarea-personal {
+  height: 230px;
+  width: 280px;
+  padding:10px;
+  border: none;
+  outline: none;
+  background-color: yellow;
+}
+
+.delete {
+  align-self: flex-end;
+  margin: 10px;
+}
+
+.type-of-note {
+  align-self: flex-start;
+  margin: 10px;
+}
+
+.note-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-work {
+  background-color: pink;
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  margin: 50px;
+}
+
+.note-personal {
+  background-color: yellow;
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  margin: 50px;
+}
