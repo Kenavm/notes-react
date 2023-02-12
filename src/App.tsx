@@ -1,32 +1,45 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import NoteContainer from "./components/Note";
-import Note from './Note'
+import NoteType from "./NoteType";
+import Note from "./components/Note";
+import FilteredNoteComponent from "./components/FilteredNotes";
+
+let filtered = false;
 
 function App() {
-  const [notes, setNote] = useState<Array<Note>>([]);
+  const [notes, setNotes] = useState<Array<NoteType>>([]);
+  const [filteredNotes, setFilteredNotes] = useState<Array<NoteType>>([]);
 
   const options = ["Work", "Personal"];
 
   function newNote() {
-    let id = notes.length;
-
-    setNote([...notes, { id: id + 1, text: "", workOrPersonal: "Work" }]);
-    console.log(id);
+    let id = notes.length+1;
+    if(filtered) {}
+    setNotes([...notes, { id: id, text: "", workOrPersonal: "Work" }]);
   }
 
   function filterNotes(workOrPersonal: string) {
-    console.log(workOrPersonal)
-    setNote(notes.filter(note => note.workOrPersonal === workOrPersonal))
+    console.log(workOrPersonal);
+    if (workOrPersonal !== "Both") {
+      filtered = true;
+      console.log(filtered);
+      setFilteredNotes(
+        notes.filter((note) => note.workOrPersonal === workOrPersonal)
+      );
+    } else {
+      filtered = false;
+      console.log(filtered)
+      setNotes(notes);
+    }
   }
 
   function deleteNote(id: number) {
-    setNote(notes.filter((note) => note.id !== id));
+    setNotes(notes.filter((note) => note.id !== id));
   }
 
-  function changeType(id: number, value: String) {
-    setNote(
+  function changeType(id: number, value: string) {
+    setNotes(
       notes.map((note) =>
         note.id === id ? { ...note, workOrPersonal: value } : note
       )
@@ -35,19 +48,27 @@ function App() {
 
   return (
     <div>
-      <Header newNote={newNote} filterNotes= {filterNotes}/>
+      <Header newNote={newNote} filterNotes={filterNotes} />
 
       <div>
-        <NoteContainer
-          changeType={changeType}
-          deleteNote={deleteNote}
-          notes={notes}
-          options={options}
-        />
+        {filtered ? (
+          <FilteredNoteComponent
+            changeType={changeType}
+            deleteNote={deleteNote}
+            options={options}
+            filteredNotes={filteredNotes}
+          />
+        ) : (
+          <Note
+            changeType={changeType}
+            deleteNote={deleteNote}
+            notes={notes}
+            options={options}
+          />
+        )}
       </div>
     </div>
   );
 }
-
 
 export default App;

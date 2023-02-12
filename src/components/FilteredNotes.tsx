@@ -1,15 +1,15 @@
 import './NoteContainer.css'
-import NoteType from '../NoteType'
+import Note from '../NoteType'
 
-function Note(props: {
+function FilteredNoteContainer(props: {
   changeType: Function;
   deleteNote: Function;
-  notes: NoteType[];
+  filteredNotes: Note[];
   options: string[];
 }) {
   return (
     <div className="note-wrapper">
-      {props.notes.map((note) => (
+      {props.filteredNotes.map((note) => (
         <div
           key={note.id}
           className={
@@ -48,4 +48,4 @@ function Note(props: {
   );
 }
 
-export default Note;
+export default FilteredNoteContainer;
