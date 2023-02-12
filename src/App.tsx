@@ -20,7 +20,7 @@ function App() {
   }
 
   function filterNotes(workOrPersonal: string) {
-    console.log(workOrPersonal);
+    console.log(filtered);
     if (workOrPersonal !== "Both") {
       filtered = true;
       console.log(filtered);
@@ -30,7 +30,7 @@ function App() {
     } else {
       filtered = false;
       console.log(filtered)
-      setNotes(notes);
+      setFilteredNotes(notes);
     }
   }
 
@@ -55,8 +55,8 @@ function App() {
           <FilteredNoteComponent
             changeType={changeType}
             deleteNote={deleteNote}
-            options={options}
             filteredNotes={filteredNotes}
+            options={options}
           />
         ) : (
           <Note
