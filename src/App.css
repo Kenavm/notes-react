@@ -1,26 +1,7 @@
-.header {
-  padding-left: 20px;
-  display:flex;
-  align-items: center;
-  background-color: lightgray;
-}
-
 .new-note {
   height: 3em;
   width: 5em;
   margin-left: 50px;
-}
-
-.note-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.note {
-  height: 300px;
-  width: 300px;
-  border: 1px solid black;
-  margin: 50px;
 }
 
 .textarea-work {
@@ -29,6 +10,7 @@
   padding:10px;
   border: none;
   outline: none;
+  resize: none;
   background-color: pink;
 }
 
@@ -38,6 +20,7 @@
   padding:10px;
   border: none;
   outline: none;
+  resize: none;
   background-color: yellow;
 }
 
