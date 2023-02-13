@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import NoteType from "./NoteType";
+import NoteType from "./types/NoteType";
 import Note from "./components/Note";
 import FilteredNoteComponent from "./components/FilteredNotes";
 

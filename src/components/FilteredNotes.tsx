@@ -1,5 +1,5 @@
 import './NoteContainer.css'
-import Note from '../NoteType'
+import Note from '../types/NoteType'
 
 function FilteredNoteContainer(props: {
   changeType: Function;

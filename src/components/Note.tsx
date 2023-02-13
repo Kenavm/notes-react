@@ -1,5 +1,5 @@
 import './NoteContainer.css'
-import NoteType from '../NoteType'
+import NoteType from '../types/NoteType'
 
 function Note(props: {
   changeType: Function;
