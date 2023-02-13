@@ -1,4 +1,4 @@
-import './NoteContainer.css'
+import './Note.css'
 import Note from '../types/NoteType'
 
 function FilteredNoteContainer(props: {

@@ -10,7 +10,6 @@ let filtered = false;
 function App() {
   const [notes, setNotes] = useState<Array<NoteType>>([]);
   const [filteredNotesByType, setFilteredNotesByType] = useState<Array<NoteType>>([]);
-  const [filteredNotesByTextContent, setfilteredNotesByTextContent] = useState<Array<NoteType>>([]);
 
   const options = ["Work", "Personal"];
 
@@ -19,10 +18,6 @@ function App() {
     if (filtered) {
     }
     setNotes([...notes, { id: id, text: "", workOrPersonal: "Work" }]);
-  }
-
-  function filterNotesByTextContent(content: string) {
-    
   }
 
   function filterNotes(workOrPersonal: string) {

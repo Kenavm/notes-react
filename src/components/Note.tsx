@@ -1,4 +1,4 @@
-import './NoteContainer.css'
+import './Note.css'
 import NoteType from '../types/NoteType'
 
 function Note(props: {
