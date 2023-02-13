@@ -9,28 +9,33 @@ let filtered = false;
 
 function App() {
   const [notes, setNotes] = useState<Array<NoteType>>([]);
-  const [filteredNotes, setFilteredNotes] = useState<Array<NoteType>>([]);
+  const [filteredNotesByType, setFilteredNotesByType] = useState<Array<NoteType>>([]);
+  const [filteredNotesByTextContent, setfilteredNotesByTextContent] = useState<Array<NoteType>>([]);
 
   const options = ["Work", "Personal"];
 
   function newNote() {
-    let id = notes.length+1;
-    if(filtered) {}
+    let id = notes.length + 1;
+    if (filtered) {
+    }
     setNotes([...notes, { id: id, text: "", workOrPersonal: "Work" }]);
   }
 
+  function filterNotesByTextContent(content: string) {
+    
+  }
+
   function filterNotes(workOrPersonal: string) {
-    console.log(filtered);
     if (workOrPersonal !== "Both") {
       filtered = true;
-      console.log(filtered);
-      setFilteredNotes(
+
+      setFilteredNotesByType(
         notes.filter((note) => note.workOrPersonal === workOrPersonal)
       );
     } else {
       filtered = false;
-      console.log(filtered)
-      setFilteredNotes(notes);
+      console.log(filtered);
+      setFilteredNotesByType(notes);
     }
   }
 
@@ -55,7 +60,7 @@ function App() {
           <FilteredNoteComponent
             changeType={changeType}
             deleteNote={deleteNote}
-            filteredNotes={filteredNotes}
+            filteredNotes={filteredNotesByType}
             options={options}
           />
         ) : (

@@ -24,6 +24,7 @@ function FilteredNoteContainer(props: {
                 ? "textarea-work"
                 : "textarea-personal"
             }
+            
           ></textarea>
           <div className="note-options">
             <select
