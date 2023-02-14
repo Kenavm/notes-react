@@ -1,7 +1,7 @@
  type Note = {
     id: number;
     text: String;
-    workOrPersonal: String;
+    type: String;
   }
 
   export default Note;

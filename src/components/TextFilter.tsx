@@ -1,4 +1,4 @@
-import './TextFilterComponent.css'
+import './TextFilter.css'
 
 function TextFilterComponent(props: {filterNotesByTextContent: Function}) {
   return (

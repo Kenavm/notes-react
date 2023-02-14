@@ -13,14 +13,14 @@ function FilteredNoteContainer(props: {
         <div
           key={note.id}
           className={
-            note.workOrPersonal === "Work" ? "note-work" : "note-personal"
+            note.type === "Work" ? "note-work" : "note-personal"
           }
         >
           {" "}
           <textarea
             placeholder="Type to add a note...."
             className={
-              note.workOrPersonal === "Work"
+              note.type === "Work"
                 ? "textarea-work"
                 : "textarea-personal"
             }
