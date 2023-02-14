@@ -4,7 +4,7 @@
   margin-left: 50px;
 }
 
-.textarea-work {
+.textarea {
   height: 230px;
   width: 280px;
   padding:10px;
@@ -14,13 +14,8 @@
   background-color: pink;
 }
 
-.textarea-personal {
-  height: 230px;
-  width: 280px;
-  padding:10px;
-  border: none;
-  outline: none;
-  resize: none;
+
+.personal {
   background-color: yellow;
 }
 
@@ -39,7 +34,7 @@
   justify-content: space-between;
 }
 
-.note-work {
+.note {
   background-color: pink;
   height: 300px;
   width: 300px;
@@ -49,8 +44,4 @@
 
 .note-personal {
   background-color: yellow;
-  height: 300px;
-  width: 300px;
-  border: 1px solid black;
-  margin: 50px;
 }

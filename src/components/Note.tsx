@@ -13,7 +13,7 @@ function Note(props: {
         <div
           key={note.id}
           className={
-            note.type === "Work" ? "note-work" : "note-personal"
+            note.type === "Work" ? "note" : "note note-personal"
           }
         >
           {" "}
@@ -21,8 +21,8 @@ function Note(props: {
             placeholder="Type to add a note...."
             className={
               note.type === "Work"
-                ? "textarea-work"
-                : "textarea-personal"
+                ? "textarea"
+                : "textarea personal"
             }
           ></textarea>
           <div className="note-options">
