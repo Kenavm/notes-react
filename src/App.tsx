@@ -11,8 +11,6 @@ function App() {
   const [filteredNotesByType, setFilteredNotesByType] = useState<
     Array<NoteType>
   >([]);
-  const [text, setText] = useState<string>();
-  const [searchText, setSearchText] = useState<string>("");
 
   const options = ["Work", "Personal"];
 
@@ -60,13 +58,29 @@ function App() {
   }
 
   function setTextById(id: number, text: string) {
-  
-      notes.map(note => {
-        if (note.id === id) {
+    if (filtered) {
+      setFilteredNotesByType(filteredNotesByType.map(note => {
+        if(note.id === id) {
           return {...note, text: text}
+        } else {
+          return note;
         }
-      })
-      
+      }))
+    } else {
+      setNotes(notes.map(note => {
+        if(note.id === id) {
+          return {...note, text: text}
+        } else {
+          return note;
+        }
+      }))
+    }
+  }
+
+  function filterByText(search: string) {
+    console.log(search)
+    console.log(notes[0].text)
+      setNotes(notes.filter((note) => note.text === search));
   }
 
   return (
@@ -74,7 +88,7 @@ function App() {
       <Header
         newNote={newNote}
         filterNotes={filterNotes}
-        handleSearchState={setSearchText}
+        filterByText={filterByText}
       />
 
       <div>
@@ -85,18 +99,14 @@ function App() {
             notes={filteredNotesByType}
             options={options}
             setTextById={setTextById}
-            text={text}
           />
         ) : (
           <Note
             changeType={changeType}
             deleteNote={deleteNote}
-            notes={notes.filter(
-              (note) => !note.text.toLowerCase().includes(searchText)
-            )}
+            notes={notes}
             options={options}
             setTextById={setTextById}
-            text={text}
           />
         )}
       </div>

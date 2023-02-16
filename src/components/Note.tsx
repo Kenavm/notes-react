@@ -7,7 +7,6 @@ function Note(props: {
   notes: NoteType[];
   options: string[];
   setTextById: Function;
-  text: string | undefined;
 }) {
   return (
     <div className="note-wrapper">
@@ -26,7 +25,7 @@ function Note(props: {
                 ? "textarea"
                 : "textarea personal"
             }
-            value={props.text}
+            
             onChange={(e) => props.setTextById(note.id, e.target.value)}
           ></textarea>
           <div className="note-options">
