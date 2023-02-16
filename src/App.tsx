@@ -78,9 +78,7 @@ function App() {
   }
 
   function filterByText(search: string) {
-    console.log(search)
-    console.log(notes[0].text)
-      setNotes(notes.filter((note) => note.text === search));
+      setNotes(notes.filter((note) => (note.text.includes(search))));
   }
 
   return (
