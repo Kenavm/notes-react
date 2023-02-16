@@ -5,7 +5,7 @@ import NoteType from "./types/NoteType";
 import Note from "./components/Note";
 
 let filtered = false;
-
+let filteredNotes;
 function App() {
   const [notes, setNotes] = useState<Array<NoteType>>([]);
   const [filteredNotesByType, setFilteredNotesByType] = useState<
@@ -78,7 +78,12 @@ function App() {
   }
 
   function filterByText(search: string) {
+    if(filtered) {
+      setFilteredNotesByType(filteredNotesByType.filter((note) => (note.text.includes(search))));
+    }else {
       setNotes(notes.filter((note) => (note.text.includes(search))));
+    }
+      
   }
 
   return (
