@@ -1,7 +1,7 @@
  type Note = {
     id: number;
-    text: String;
-    type: String;
+    text: string;
+    type: string;
   }
 
   export default Note;

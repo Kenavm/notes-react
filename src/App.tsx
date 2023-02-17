@@ -5,7 +5,7 @@ import NoteType from "./types/NoteType";
 import Note from "./components/Note";
 
 let filtered = false;
-
+let filteredNotes;
 function App() {
   const [notes, setNotes] = useState<Array<NoteType>>([]);
   const [filteredNotesByType, setFilteredNotesByType] = useState<
@@ -56,9 +56,43 @@ function App() {
       );
     }
   }
+
+  function setTextById(id: number, text: string) {
+    if (filtered) {
+      setFilteredNotesByType(filteredNotesByType.map(note => {
+        if(note.id === id) {
+          return {...note, text: text}
+        } else {
+          return note;
+        }
+      }))
+    } else {
+      setNotes(notes.map(note => {
+        if(note.id === id) {
+          return {...note, text: text}
+        } else {
+          return note;
+        }
+      }))
+    }
+  }
+
+  function filterByText(search: string) {
+    if(filtered) {
+      setFilteredNotesByType(filteredNotesByType.filter((note) => (note.text.includes(search))));
+    }else {
+      setNotes(notes.filter((note) => (note.text.includes(search))));
+    }
+      
+  }
+
   return (
     <div>
-      <Header newNote={newNote} filterNotes={filterNotes} />
+      <Header
+        newNote={newNote}
+        filterNotes={filterNotes}
+        filterByText={filterByText}
+      />
 
       <div>
         {filtered ? (
@@ -67,6 +101,7 @@ function App() {
             deleteNote={deleteNote}
             notes={filteredNotesByType}
             options={options}
+            setTextById={setTextById}
           />
         ) : (
           <Note
@@ -74,6 +109,7 @@ function App() {
             deleteNote={deleteNote}
             notes={notes}
             options={options}
+            setTextById={setTextById}
           />
         )}
       </div>
